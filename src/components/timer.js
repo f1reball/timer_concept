@@ -3,27 +3,37 @@ import react, { useEffect, useState } from "react";
 
 function Timer() {
     const [time, setTime] = useState(0)
-    const [timerActive, setTimerActive] = useState(false)
+    const [toggleTimer, setToggleTimer] = useState(false)
 
 
     function Reset() {
-        setTimerActive(false);
+        setToggleTimer(false);
         setTime(0);
+    }
+
+    function toggle() {
+        if(toggleTimer) {
+            setToggleTimer(false);
+        } else {
+            setToggleTimer(true);
+        }
     }
 
     useEffect(() => {
 
-
         let interval = null;
-        if(timerActive) {
+
+        if(toggleTimer) {
             interval = setInterval(() => {
                 setTime(time => time + 1)
-            }, 1000)
+            }, 10)
         } else {
             clearInterval(interval)
         }
+
         return() => clearInterval(interval);
-    }, [timerActive])
+        
+    }, [toggleTimer])
 
 
 
@@ -33,10 +43,10 @@ function Timer() {
                 <h1>{time}</h1>
             </div>
             <div>
-                <button onClick={(() => setTimerActive(true))}>Start</button>
-                <button onClick={(() => setTimerActive(false))}>Stop</button>
-                <button onClick={(() => setTimerActive(true))}>Resume</button>
+                <button onClick={toggle}>{toggleTimer ? "Stop" : "Start"}</button>
                 <button onClick={ Reset }>Reset</button>
+
+                <h1>{toggleTimer ? "yes" : "no" }</h1>
             </div>
         </div>
     );
