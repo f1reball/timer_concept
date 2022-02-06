@@ -1,4 +1,4 @@
-import { clear } from "@testing-library/user-event/dist/clear";
+import './timer.css'
 import react, { useEffect, useState } from "react";
 
 function Timer() {
@@ -28,12 +28,16 @@ function Timer() {
 
 
     return(
-        <div>
-            <h1>{time}</h1>
-            <button onClick={(() => setTimerActive(true))}>Start</button>
-            <button onClick={(() => setTimerActive(false))}>Stop</button>
-            <button onClick={(() => setTimerActive(true))}>Resume</button>
-            <button onClick={ Reset }>Reset</button>
+        <div className="Container">
+            <div>
+                <h1>{time}</h1>
+            </div>
+            <div>
+                <button onClick={(() => setTimerActive(true))}>Start</button>
+                <button onClick={(() => setTimerActive(false))}>Stop</button>
+                <button onClick={(() => setTimerActive(true))}>Resume</button>
+                <button onClick={ Reset }>Reset</button>
+            </div>
         </div>
     );
 }
