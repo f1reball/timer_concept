@@ -4,3 +4,40 @@
     align-items: center;
     flex-direction: column;
 }
+
+.ButtonWrapper {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Button_Green {
+    background-color:#4CAF50;
+    border: none;
+	border-radius: 5px;
+	color:#ffffff;
+	padding: 10px 20px 10px 20px;
+    transition-duration: 0.2s;
+}
+
+.Button_Green:hover {
+    background-color:#3e8e41;
+}
+
+.Button_Red {
+    background-color:#f44336;
+    border: none;
+	border-radius: 5px;
+	color:#ffffff;
+	padding: 10px 20px 10px 20px;
+    transition-duration: 0.2s;  
+}
+
+.Button_Red:hover {
+    background-color: #da190b;
+}
+
+.Button_Red:disabled {
+    background-color: #bfbfbf;
+}

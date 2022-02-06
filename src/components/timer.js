@@ -1,5 +1,5 @@
 import './timer.css'
-import react, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Timer() {
     const [time, setTime] = useState(0)
@@ -42,11 +42,14 @@ function Timer() {
             <div>
                 <h1>{time}</h1>
             </div>
-            <div>
-                <button onClick={toggle}>{!toggleTimer ? time == 0 ? "Start" : "Resume" : "Stop"}</button>
-                { time != 0 && !toggleTimer && 
-                    <button onClick={Reset}>Reset</button>
-                }
+            <div className='ButtonWrapper'>
+
+                <button onClick={toggle} className={toggleTimer ? "Button_Red" : "Button_Green"}>
+                    {!toggleTimer ? time === 0 ? "Start" : "Resume" : "Stop"}
+                </button>
+
+                <button disabled={time == 0 || toggleTimer} className="Button_Red" onClick={Reset}>Reset</button>
+
             </div>
         </div>
     );
