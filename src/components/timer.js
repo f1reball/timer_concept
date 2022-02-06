@@ -43,10 +43,10 @@ function Timer() {
                 <h1>{time}</h1>
             </div>
             <div>
-                <button onClick={toggle}>{toggleTimer ? "Stop" : "Start"}</button>
-                <button onClick={ Reset }>Reset</button>
-
-                <h1>{toggleTimer ? "yes" : "no" }</h1>
+                <button onClick={toggle}>{!toggleTimer ? time == 0 ? "Start" : "Resume" : "Stop"}</button>
+                { time != 0 && !toggleTimer && 
+                    <button onClick={Reset}>Reset</button>
+                }
             </div>
         </div>
     );
