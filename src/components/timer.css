@@ -41,3 +41,8 @@
 .Button_Red:disabled {
     background-color: #bfbfbf;
 }
+
+.DigitHolder {
+    display: flex;
+    flex-direction: row;
+}

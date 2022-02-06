@@ -19,14 +19,19 @@ function Timer() {
         }
     }
 
+    function timeFormat() {
+
+    }
+
     useEffect(() => {
 
         let interval = null;
 
         if(toggleTimer) {
             interval = setInterval(() => {
-                setTime(time => time + 1)
+                setTime(time => time + 10)
             }, 10)
+            timeFormat(time);
         } else {
             clearInterval(interval)
         }
@@ -40,7 +45,11 @@ function Timer() {
     return(
         <div className="Container">
             <div>
-                <h1>{time}</h1>
+                <div className='DigitHolder'>
+                    <h1>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</h1>
+                    <h1>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</h1>
+                    <h1>{("0" + ((time / 10) % 100)).slice(-2)}</h1>
+                </div>
             </div>
             <div className='ButtonWrapper'>
 
